@@ -37,5 +37,8 @@ UUID4 =
 
 
 # Expose object to the global namespace.
-root = if typeof exports is 'object' then exports else this
-root.UUID4 = UUID4
+if expose?
+  expose UUID4, 'UUID4'
+else
+  root = if typeof exports is 'object' then exports else this
+  root.UUID4 = UUID4
