@@ -18,7 +18,7 @@
     "babel-core": "^6.4.5",
     "babel-loader": "^6.2.2",
     "babel-preset-es2015": "^6.3.13",
-    "bag-and-tag": "^1.0.1",
+    "bag-and-tag": "^1.0.2",
     "jasmine-core": "^2.4.1",
     "karma": "^0.13.19",
     "karma-jasmine": "^0.3.7",
