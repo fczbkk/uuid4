@@ -20,4 +20,4 @@ If you found any bugs, if you have feature requests or any questions, please, ei
 
 ## License
 
-UUID4 is published under the [UNLICENSE license](https://github.com/fczbkk/uuid4/blob/master/UNLICENSE). Feel free to use it in any way.
+UUID4 is published under the [MIT license](https://github.com/fczbkk/uuid4/blob/master/LICENSE). Feel free to use it in any way.

@@ -8,21 +8,43 @@
     "url": "https://github.com/fczbkk/uuid4.git"
   },
   "author": "Riki Fridrich <riki@fczbkk.com> (https://github.com/fczbkk)",
-  "license": "UNLICENSE",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/fczbkk/uuid4/issues"
   },
-  "homepage": "https://github.com/fczbkk/uuid4",
+  "homepage": "https://github.com/fczbkk/uuid4#readme",
   "devDependencies": {
-    "grunt": "*",
-    "grunt-coffeelint": "*",
-    "grunt-contrib-uglify": "*",
-    "grunt-contrib-watch": "*",
-    "grunt-contrib-jasmine": "*",
-    "grunt-contrib-coffee": "*",
-    "grunt-bump": "*",
-    "grunt-conventional-changelog": "*",
-    
-    "load-grunt-tasks": "*"
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.2",
+    "babel-preset-es2015": "^6.3.13",
+    "bag-and-tag": "^1.0.1",
+    "jasmine-core": "^2.4.1",
+    "karma": "^0.13.19",
+    "karma-jasmine": "^0.3.7",
+    "karma-mocha-reporter": "^1.1.5",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "phantomjs-prebuilt": "^2.1.3",
+    "rimraf": "^2.5.1",
+    "webpack": "^1.12.13"
+  },
+  "main": "lib/node/index.js",
+  "scripts": {
+    "cleanup": "./node_modules/.bin/rimraf temp",
+    "prebuild": "npm run cleanup",
+    "build": "npm run build:test && npm run build:browser && npm run build:node",
+    "build:browser": "webpack --config webpack.browser.config.js",
+    "build:node": "./node_modules/.bin/babel ./src -d ./temp/lib/node",
+    "build:test": "webpack --config webpack.test.config.js",
+    "watch": "npm run watch:test & npm run watch:browser & npm run watch:node & npm run watch:karma",
+    "watch:browser": "webpack --config webpack.browser.config.js --watch",
+    "watch:node": "./node_modules/.bin/babel ./src -w -d ./temp/lib/node",
+    "watch:test": "webpack --config webpack.test.config.js --watch",
+    "watch:karma": "karma start karma.conf.js",
+    "dev": "npm run build && npm run watch",
+    "pretest": "npm run build",
+    "test": "karma start karma.conf.js --single-run",
+    "prerelease": "npm run build",
+    "release": "./node_modules/.bin/bag-and-tag"
   }
 }
