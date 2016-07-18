@@ -1,6 +1,6 @@
 {
   "name": "@fczbkk/uuid4",
-  "version": "3.0.0-rc.1",
+  "version": "3.0.0",
   "description": "Generator and validator for Universally Unique Identifier v4 (random).",
   "repository": {
     "type": "git",
