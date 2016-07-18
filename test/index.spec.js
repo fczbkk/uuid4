@@ -1,16 +1,11 @@
-const UUID4 = require('./../src/index.js');
+import {generate, validate} from './../src/index';
 
 
 describe('UUID4', function () {
 
-  it('should exist', function () {
-    expect(UUID4).toBeDefined();
-  });
-
   it('should generate and validate', function () {
     for (let i = 0; i < 1000; i++) {
-      const id = UUID4.generate();
-      expect(UUID4.validate(id)).toEqual(true);
+      expect(validate(generate())).toEqual(true);
     }
   });
 
